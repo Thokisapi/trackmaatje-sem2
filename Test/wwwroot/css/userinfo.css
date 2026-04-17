@@ -1,0 +1,95 @@
+.user-info-page {
+    padding: 16px 0;
+}
+
+.user-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.panel {
+    background: #fff;
+    border: 1px solid #d7d7d7;
+    border-radius: 12px;
+    padding: 18px;
+}
+
+.panel-title {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 600;
+    color: #24292f;
+}
+
+.panel-subtitle {
+    margin: 8px 0 18px;
+    color: #5f6671;
+    font-size: 16px;
+    line-height: 1.45;
+}
+
+.user-info-form label {
+    display: block;
+    margin: 0 0 6px;
+    color: #2f3640;
+}
+
+.user-info-form .form-control {
+    margin-bottom: 14px;
+    border: 1px solid #d6d6d6;
+    border-radius: 8px;
+    height: 44px;
+}
+
+.options {
+    border: 0;
+    padding: 0;
+    margin: 8px 0 14px;
+}
+
+.options legend {
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+.radio-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 6px 0;
+}
+
+.radio-row input[type="radio"] {
+    margin: 0;
+}
+
+.action-btn {
+    margin-top: 8px;
+    width: 100%;
+    border-radius: 8px;
+    height: 44px;
+    font-weight: 600;
+}
+
+.plan-panel {
+    min-height: 620px;
+}
+
+.plan-placeholder {
+    margin-top: 40px;
+    color: #5f6671;
+    line-height: 1.5;
+    max-width: 430px;
+}
+
+@media (max-width: 991px) {
+    .user-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .plan-panel {
+        min-height: auto;
+    }
+}
+
