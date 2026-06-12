@@ -24,7 +24,7 @@ namespace Test.Controllers
             var request = new CreateUserRequest(model.Name, model.Email, model.Password);
             userService.CreateUser(request);
 
-            return RedirectToAction("Login");
+            return RedirectToAction("~/Views/Home/Login.cshtml", model);
         }
 
 

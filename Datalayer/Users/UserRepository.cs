@@ -18,7 +18,7 @@ namespace Datalayer.Users
             using var connection = new MySqlConnection(_connectionString);
 
             connection.Open();
-            var query = @"INSERT INTO users (name, email, password, role_id)
+            var query = @"INSERT INTO user (name, email, password, role_id)
                                  VALUES (@name, @email, @password, @role_id)";
 
             var cmd = new MySqlCommand(query, connection);
@@ -29,6 +29,35 @@ namespace Datalayer.Users
             cmd.Parameters.AddWithValue("@role_id", 2);
 
             cmd.ExecuteNonQuery();
+        }
+        public DbUser? GetUserByEmail(string email)
+        {
+            using var connection = new MySqlConnection(_connectionString);
+
+            connection.Open();
+
+            var query = @"SELECT id, name, email, password, role_id
+                  FROM user
+                  WHERE email = @email";
+
+            using var cmd = new MySqlCommand(query, connection);
+
+            cmd.Parameters.AddWithValue("@email", email);
+
+            using var reader = cmd.ExecuteReader();
+
+            if (reader.Read())
+            {
+                return new DbUser
+                {
+                    Id = reader.GetInt32("id"),
+                    Name = reader.GetString("name"),
+                    Email = reader.GetString("email"),
+                    Password = reader.GetString("password"),
+                    RoleId = reader.GetInt32("role_id")
+                };
+            }
+            return null;
         }
     }
 }

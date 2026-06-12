@@ -1,0 +1,102 @@
+@model Test.Models.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<link rel="stylesheet"
+      href="~/css/login.css"
+      asp-append-version="true" />
+
+<div class="card">
+    <div class="logo-wrap">
+        <div class="logo-circle">
+            <svg viewBox="0 0 24 24"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C8.686 2 6 4.686 6 8c0 5.25 6 13 6 13s6-7.75 6-13c0-3.314-2.686-6-6-6z" />
+                <circle cx="12"
+                        cy="8"
+                        r="2"
+                        stroke="#fff"
+                        stroke-width="2"
+                        fill="none" />
+            </svg>
+        </div>
+
+        <span class="brand-name">Tracknode</span>
+        <span class="tagline">
+            Track your daily nutrition with ease
+        </span>
+    </div>
+
+    <div class="divider">
+        <div class="divider-line"></div>
+        <span class="divider-label">Login</span>
+        <div class="divider-line"></div>
+    </div>
+
+    <p class="welcome">Welcome back,</p>
+
+    <p class="welcome-sub">
+        Enter your credentials to access your account
+    </p>
+
+    <form asp-controller="Login"
+          asp-action="Login"
+          method="post">
+
+        @Html.AntiForgeryToken()
+
+        <div asp-validation-summary="ModelOnly"
+             class="error-message">
+        </div>
+
+        <div class="field">
+            <label asp-for="Email"></label>
+
+            <input asp-for="Email"
+                   name="Email"
+                   type="email"
+                   placeholder="you@example.com"
+                   autocomplete="email" />
+
+            <span asp-validation-for="Email"
+                  class="text-danger">
+            </span>
+        </div>
+
+        <div class="field">
+            <label asp-for="Password"></label>
+
+            <input asp-for="Password"
+                   name="Password"
+                   type="password"
+                   placeholder="••••••••"
+                   autocomplete="current-password" />
+
+            <span asp-validation-for="Password"
+                  class="text-danger">
+            </span>
+        </div>
+
+        <button class="btn"
+                type="submit">
+            Log in
+        </button>
+    </form>
+
+    <p class="footer-text">
+        Don't have an account already?
+
+        <a asp-controller="Register"
+           asp-action="Register">
+            Create one here
+        </a>
+    </p>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
