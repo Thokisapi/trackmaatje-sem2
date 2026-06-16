@@ -53,7 +53,7 @@ public class LoginController : Controller
         Console.WriteLine($"{user.Email}");
 
         return RedirectToAction(
-            "Index",
+            "Userinfo",
             "Home");
     }
 }
