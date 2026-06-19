@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Test.Models;
+using Test.Helpers;
 
 namespace Test.Controllers;
 
@@ -15,8 +16,13 @@ public class HomeController : Controller
     {
         return View();
     }
+    
     public IActionResult Userinfo()
     {
+        // Check if user is logged in
+        var redirectResult = this.RedirectToLoginIfNotLoggedIn();
+        if (redirectResult != null) return redirectResult;
+
         return View();
     }
 

@@ -16,7 +16,7 @@
 
                 <label for="age">Age (years)</label>
                 <input id="age" type="number" name="age" class="form-control" placeholder="20" />
-
+                
                 <div class="options">
                     <label>Gender</label>
                     <label class="radio-row"><input type="radio" name="gender" value="male" checked /> Male</label>
@@ -42,13 +42,36 @@
             </form>
         </div>
 
-        <div class="panel plan-panel">
-            <h3 class="panel-title">Your Personalized Plan</h3>
-            <p class="panel-subtitle">Daily macro nutrient targets based on your information.</p>
+        @if (Model?.Plan != null)
+        {
+            <div class="macro-results">
+                <div class="macro-card">
+                    <h4>Calories</h4>
+                    <p>@Model.Plan.Calories kcal</p>
+                </div>
 
-            <div class="plan-placeholder">
-                Fill in your information and click "Calculate Plan" to see your personalized targets.
+                <div class="macro-card">
+                    <h4>Protein</h4>
+                    <p>@Model.Plan.Protein g</p>
+                </div>
+
+                <div class="macro-card">
+                    <h4>Carbs</h4>
+                    <p>@Model.Plan.Carbs g</p>
+                </div>
+
+                <div class="macro-card">
+                    <h4>Fat</h4>
+                    <p>@Model.Plan.Fat g</p>
+                </div>
             </div>
-        </div>
+        }
+        else
+        {
+            <div class="plan-placeholder">
+                Fill in your information and click
+                "Calculate Plan"
+            </div>
+        }
     </div>
 </section>

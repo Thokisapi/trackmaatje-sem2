@@ -23,6 +23,7 @@ public class LoginController : Controller
     }
 
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public IActionResult Login(LoginViewModel model)
     {
         if (!ModelState.IsValid)
@@ -51,9 +52,17 @@ public class LoginController : Controller
             "UserEmail",
             user.Email);
         Console.WriteLine($"{user.Email}");
+        
 
         return RedirectToAction(
             "Userinfo",
             "Home");
+    }
+
+    [HttpGet]
+    public IActionResult Logout()
+    {
+        HttpContext.Session.Clear();
+        return RedirectToAction("Index", "Home");
     }
 }

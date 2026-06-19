@@ -1,14 +1,14 @@
 ﻿namespace Core.UserInfo;
 
 public class UserInfoRequest(
-    double weight,
+    float weight,
     int height,
     int age,
     string gender,
     string activityLevel,
     string goal)
 {
-    public double Weight { get; } = weight;
+    public float Weight { get; } = weight;
     public int Height { get; } = height;
     public int Age { get; } = age;
     public string Gender { get; } = gender;

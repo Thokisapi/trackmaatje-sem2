@@ -29,4 +29,23 @@ public class UserService(IUserRepository userRepository) : IUserService
             RoleId = dbUser.RoleId
         };
     }
+    public User? GetUserByEmail(
+        string email)
+    {
+        var dbUser =
+            userRepository.GetUserByEmail(
+                email);
+
+        if (dbUser == null)
+            return null;
+
+        return new User
+        {
+            Id = dbUser.Id,
+            Name = dbUser.Name,
+            Email = dbUser.Email,
+            Password = dbUser.Password,
+            RoleId = dbUser.RoleId
+        };
+    }
 }

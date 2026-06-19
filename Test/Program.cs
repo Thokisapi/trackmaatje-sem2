@@ -1,6 +1,8 @@
 using Core.UserInfo;
 using Core.Users;
 using Datalayer.Users;
+using Datalayer.UserInfo;
+using Datalayer.Food;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,10 +20,13 @@ builder.Services.AddScoped<
     IUserService,
     UserService>();
 
-
 builder.Services.AddScoped<
     IUserInfoService,
     UserInfoService>();
+
+builder.Services.AddScoped<
+    IUserInfoRepository,
+    UserInfoRepository>();
 
 builder.Services.AddScoped<
     MacroCalculator>();

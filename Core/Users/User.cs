@@ -1,4 +1,4 @@
-﻿namespace Core;
+﻿namespace Core.Users;
 
 public class User
 {

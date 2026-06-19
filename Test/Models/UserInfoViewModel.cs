@@ -5,7 +5,7 @@ namespace Test.Models;
 public class UserInfoViewModel
 {
     [Required]
-    public double Weight { get; set; }
+    public float Weight { get; set; }
 
     [Required]
     public int Height { get; set; }

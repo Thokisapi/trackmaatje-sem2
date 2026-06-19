@@ -14,6 +14,7 @@ namespace Test.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Register(CreateUserViewModel model)
         {
             if (!ModelState.IsValid)
